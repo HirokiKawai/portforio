@@ -1,0 +1,90 @@
+
+<div class="container-y">
+
+  <section class="area1">
+  </section>
+
+  <section class="area2">
+  </section>
+
+  <section class="area3">
+  </section>
+
+  <section class="area4">
+    <!--モーダル-->
+    <div class="sign_button sign_in_button">
+      <h2>Log in</h2>
+    </div>
+    <div class="sign_button sign_up_button">
+      <h2>Sign up</h2>
+    </div>
+    <!--お問い合わせフォーム(途中)-->
+    <div class="sign_button contact_us_button">
+      <h2>Contact us</h2>
+    </div>
+
+    <div class="sign_modal_wrapper"></div>
+    <div class="sign_modal">
+
+      <span class="fa_wrapper"><%= fa_icon "times" %></span>
+
+      <!--ログインフォーム-->
+      <div class="sign_in_modal sign_modal_content">
+          <h1>ログイン</h1>
+          <form class="old_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+                <input name="utf8" type="hidden" value="✓">
+                <input type="hidden" name="authenticity_token" value="">
+
+                <div class="lif-1">
+                    <label for="user_name"></label><br>
+                    <input autofocus="autofocus" placeholder="登録ID" type="text" value="" name="user[id_name]">
+                </div>
+
+                <div class="lif-2">
+                    <label for="user_password"></label><br>
+                    <input autocomplete="current-password" placeholder="パスワード" type="password" name="user[password]">
+                </div>
+
+                <div class="li-action">
+                    <input type="submit" name="commit" value="ログイン" data-disable-with="Log in">
+                </div>
+          </form>
+      </div>
+
+      <!--新規登録フォーム-->
+      <div class="sign_up_modal sign_modal_content">
+          <h1>新規登録</h1>
+          <form class="new_user" action="/users" accept-charset="UTF-8" method="post">
+            <input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="authenticity_token" value="">
+
+            <div class="suf-1">
+                <label for="user_name"></label><br>
+                <input autofocus="autofocus" placeholder="登録ID" type="text" value="" name="user[id_name]" >
+            </div>
+
+            <div class="suf-2">
+                <label for="user_email"></label><br>
+                <input autocomplete="email" placeholder="メールアドレス" type="email" value="" name="user[email]">
+            </div>
+
+            <div class="suf-3">
+                <label for="user_password"></label>
+                <br>
+                <input autocomplete="new-password" placeholder="パスワード" type="password" name="user[password]" aria-autocomplete="list">
+            </div>
+
+            <div class="suf-4">
+                <label for="user_password_confirmation"></label><br>
+                <input autocomplete="new-password" placeholder="パスワードの再入力" type="password" name="user[password_confirmation]">
+            </div>
+
+            <div class="su-action">
+              <input type="submit" name="commit" value="登録" data-disable-with="Sign up">
+            </div>
+
+          </form>
+    </div>
+  </section>
+</div>
+

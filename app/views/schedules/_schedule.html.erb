@@ -1,0 +1,7 @@
+
+<!--delete前にアラート鳴らして『削除しますか？』を入れる。-->
+<div class="schedule_<%= s.id %>">
+	<!--日付 => 時間へと変えること。-->
+	<p><%= s.date %></p>
+		<h4><%= link_to s.title,schedule_path(s), method: :delete, remote: true, class: "schedule_item" %></h4>
+</div>

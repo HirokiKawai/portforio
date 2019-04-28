@@ -1,0 +1,42 @@
+
+<div class="my-page">
+
+	<h1 class="title">登録情報</h1>
+
+	<div class="user-info">
+		<%= form_for @user, :url => {:action => 'update'} do |f| %>
+			<table>
+				<tr>
+				<th><h2>登録ID</h2></th>
+				</tr>
+				<tr>
+				<td><h2><%= f.text_field :id_name %></h2></td>
+				</tr>
+
+				<tr>
+				<th><h2>メールアドレス</h2></th>
+				</tr>
+				<tr>
+				<td><h2><%= f.text_field :email %></h2></td>
+				</tr>
+			</table>
+		<h4><%= f.submit '登録情報の更新', class: "btn btn-primary" %></h4>
+		<% end %>
+	</div>
+
+	<h3 class="message1">Thank you</h3>
+	<h3 class="message2">for using.</h3>
+
+	<div class="link_page">
+	  <!-- ログインしている時 => マイページの表示/ログアウトの表示 -->
+	  <% if user_signed_in? %>
+		<!--(current_user.id)-->
+		<h2 class="mp-position"><%= link_to 'Back', schedules_path, class: "btn btn-warning btn-lg" %></h2>
+
+		<!--delete機能となっている-->
+		<h2 class="lo-position"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-lg" %></h2>
+	  <% end %>
+
+	</div>
+
+</div>

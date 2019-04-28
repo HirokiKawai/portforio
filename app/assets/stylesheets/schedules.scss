@@ -1,0 +1,83 @@
+// Place all the styles related to the schedules controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+/* カレンダー */
+#calendar {
+  max-width: 800px;
+  margin: 0 auto;
+}
+body {
+  margin: 40px 10px;
+  padding: 0;
+  font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+  font-size: 16px;
+}
+.fc-day-number{
+  font-size: 20px;
+}
+/* 土日 */
+.fc-sun { color: red; }
+.fc-sat { color: blue; }
+/* カレンダー ここまで */
+
+
+/* ----- タブメニュー/ここから ----- */
+ @charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* wrapクラスのスタイル */
+.wrap{
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.clearfix:after{
+  content:"";
+  clear: both;
+  display: block;
+}
+/* タブと中身の隙間を無くす為の追加記述 */
+#tab-menu{
+  margin-bottom: 0;
+}
+.tab{
+  height: 550px;
+}
+/* #=id IDを持つタグのスタイル */
+#tab-menu li {
+  float: left;
+  list-style-type: none;
+  width: 50%;
+}
+#tab-menu a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  background: #000;
+  border: 1px solid #000;
+  border-bottom: none;
+}
+#tab-menu .active {
+  background: #fff;
+  color: #000;
+}
+#tab-contents .tab {
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #000;
+  border-top: none;
+  height: 550px;
+}
+#tab-contents p{
+  color:#000;
+  line-height: 2.5;
+}
+/* ----- タブメニュー/ここまで ----- */

@@ -1,0 +1,82 @@
+
+<div class="back-image">
+<div class="container">
+  <div class="row">
+
+    <!--カレンダー(gem/fullcalendar)-->
+   <div class="col-lg-8">
+     <div id="calendar" class="main"></div>
+   </div>
+
+	<!--タブメニュー/ここから-->
+	<div class="col-lg-4">
+	  <body>
+      <input type="hidden" id="csrf_check" name="authenticity_token" value=<%= form_authenticity_token %>>
+     	<div class="wrap">
+        	<ul id="tab-menu" class="clearfix">
+              <li><a href="#tab1" class="active">Schedule</a></li>
+              <li><a href="#tab2" class="">TODO list</a></li>
+        	</ul>
+
+            <div id="tab-contents" class="clearfix">
+                <!--スケジュール-->
+                <div id="tab1" class="tab tab1">
+                    <h4>Create Schedule</h4>
+                    <%= form_with url: schedules_path, id: "schedule"  do |form| %>
+                        <!--jsファイル/calendarの中身/『var $select = $('#schedule_days');』の部分-->
+                        <!--text_field => hidden_field-->
+                        <%= form.hidden_field :date, id: "schedule_days",
+                        required: true, value: "" %>
+                        <%= form.time_select :time, id: "schedule_time", required: true, value: "" %>
+                        <!--jsファイル/tab-scheduleの中身/『$(document).on('ajax:success'〜の部分-->
+                        <%= form.text_field :title, id: "scheduleTitle",required: true %>
+                        <%= form.submit class: "submit1, btn btn-primary btn-sm" %>
+                    <% end %>
+
+                    <h4>1day Schedules</h4>
+  	                <div class="post_wrapper1">
+                        <%= render partial: 'schedules', locals: { schedules: @schedules } %>
+  	                </div>
+	              </div>
+
+                <!--TODOリスト-->
+                <div id="tab2" class="tab tab2">
+  	                <h4>Create Todolist</h4>
+  	                <%= form_with url: todolists_path, id: "todo"  do |form| %>
+                      <%= form.hidden_field :date, id: "todolist_days",
+                        required: true, value: "" %>
+                      <!--jsファイル/tab-todoの中身/『$(document).on('ajax:success'〜の部分-->
+  		                <%= form.text_field :title, id: "todolistTitle", required: true %>
+  		                <%= form.submit class: "submit2, btn btn-success btn-sm" %>
+  	                <% end %>
+
+  	                <h4>1day Todolists</h4>
+                    <div class="post_wrapper2">
+                            <%= render partial: 'todolists/todolists', locals: { todolists: @todolists } %>
+                    </div>
+		            </div>
+
+            </div>
+        </div>
+	  </body>
+	</div>
+	<!--タブメニュー/ここまで-->
+
+  </div>
+</div>
+</div>
+
+<footer>
+  <!-- ログインしている時 => マイページの表示/ログアウトの表示 -->
+  <div class="menu">
+  <% if user_signed_in? %>
+    <%= link_to 'My page', user_path(current_user), class: "btn btn-info" %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+  <% end %>
+  </div>
+
+  <div class="copyright">
+    <h4>©Infratop.inc  ~ DMM WEBCAMP ~</h4>
+  </div>
+</footer>
+

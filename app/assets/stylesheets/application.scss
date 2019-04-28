@@ -1,0 +1,265 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require fullcalendar
+ *= require font-awesome
+ */
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ---------- Topページ ---------- */
+.container-y {
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  font-family: arial;
+}
+.area1 {
+  scroll-snap-align: start;
+  width: 100%;
+  height: 750px;
+  flex: none;
+  text-align: center;
+  color: #FAFAFA;
+  background-image: url("top.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.area2 {
+  scroll-snap-align: end;
+  width: 100%;
+  height: 800px;
+  flex: none;
+  text-align: center;
+  color: #FAFAFA;
+  background-image: url("detail.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.area3 {
+  scroll-snap-align: center;
+  width: 100%;
+  height: 800px;
+  flex: none;
+  text-align: center;
+  color: #FAFAFA;
+  background-image: url("description.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.area4 {
+  scroll-snap-align: center;
+  width: 100%;
+  height: 800px;
+  flex: none;
+  text-align: center;
+  color: black;
+  background-image: url("entrance.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.area1:nth-child(even) {
+  background-color: #0db;
+}
+.area1:nth-child(odd) {
+  background-color: #0bd;
+}
+.area2:nth-child(even) {
+  background-color: #0db;
+}
+.area2:nth-child(odd) {
+  background-color: #0bd;
+}
+.area3:nth-child(even) {
+  background-color: #0db;
+}
+.area3:nth-child(odd) {
+  background-color: #0bd;
+}
+.area4:nth-child(even) {
+  background-color: #0db;
+}
+.area4:nth-child(odd) {
+  background-color: #0bd;
+}
+.sign_button {
+  display: inline-block;
+  cursor: pointer;
+  border: 3px solid white;
+  padding: 15px;
+  opacity: 0.7;
+  transition: .3s;
+  margin-top: 480px;
+  color: white;
+  font-family: Kameron;
+}
+.button:hover {
+  opacity: 5;
+}
+.sign_in_button{
+  margin-right: 50px;
+}
+.lif-1{
+  color: black;
+}
+.lif-2{
+  color: black;
+}
+.li-action{
+  color: black;
+}
+.sign_up_button {
+  margin-right: 50px;
+}
+.suf-1{
+  color: black;
+}
+.suf-2{
+  color: black;
+}
+.suf-3{
+  color: black;
+}
+.suf-4{
+  color: black;
+}
+.su-action{
+  color: black;
+}
+.sign_modal_wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: .7;
+  display: none;
+}
+.sign_modal {
+  position: absolute;
+  background-color: #696969;
+  color: white;
+  width: 400px;
+  height: 400px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 100px auto 0;
+  display: none;
+  text-align: right;
+}
+.sign_modal_content {
+  display: none;
+  text-align: center;
+}
+.fa_wrapper {
+  cursor: pointer;
+  margin: 3px 3px 0 0;
+}
+/* -------------------------------- */
+
+/* ---------- Indexページ ---------- */
+.back-image{
+  height: 680px;
+  flex: none;
+  color: black;
+  background-image: url("index3.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+#calendar{
+  width: 750px;
+  height: 600px;
+  margin-top: 50px;
+}
+.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover, .fc-unthemed .fc-list-view, .fc-unthemed .fc-list-heading td {
+    border-color: black!important;
+}
+#tab-menu{
+  width: 324px;
+  margin-top: 50px;
+  font-family: Kameron;
+}
+footer{
+  width: 100%;
+  height: 50px;
+  background-color: #B1B3B6;
+  text-align: left;
+  font-family: Kameron;
+}
+.menu{
+  font-size: 20px;
+  position: absolute;
+  bottom: 11px;
+  left: 3%;
+}
+.copyright{
+  position: absolute;
+  bottom: 10px;
+  left: 40%;
+}
+/* -------------------------------- */
+
+/* ---------- マイページ ---------- */
+.my-page{
+  width: 100%;
+  height: 750px;
+  flex: none;
+  color: black;
+  background-image: url("my_page.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: Kameron;
+}
+.user-info{
+  position: absolute;
+  top: 25%;
+  left: 54%;
+}
+.mp-position{
+  position: absolute;
+  top: 85%;
+  left: 23.7%;
+}
+.lo-position{
+  position: absolute;
+  top: 85%;
+  left: 34.1%;
+}
+.title{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+}
+.message1{
+  color: white;
+  position: absolute;
+  top: 12%;
+  left: 25%;
+}
+.message2{
+  color: white;
+  position: absolute;
+  top: 17%;
+  left: 30%;
+}
+/* -------------------------------- */
+
