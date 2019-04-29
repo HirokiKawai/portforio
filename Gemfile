@@ -76,5 +76,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'font-awesome-rails'
 
 # railsで定義した変数をJS内で利用できるようにする為のgem
+# 今回の開発では一度使用したものの、現在は使っていない。外すとエラーが出てしまう為、そのまま表示させています。
   gem 'gon'
 
