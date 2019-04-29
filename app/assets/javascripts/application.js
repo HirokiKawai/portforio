@@ -23,6 +23,7 @@
 
 
 // Top/モーダル ------------------------------------------
+//$(function)~~より変更。'turbolinks'対策の記述。
 document.addEventListener("turbolinks:load", function(){
   $(document).on('click', '.sign_button', function() {
     $('.sign_modal_wrapper').show();
@@ -47,7 +48,6 @@ document.addEventListener("turbolinks:load", function(){
 // Index/カレンダー ---------------------------------------------
 document.addEventListener("turbolinks:load", function(){
     $('#calendar').fullCalendar({
-        //events: '/events.json',
         titleFormat: 'YYYY / M',
         dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Tur', 'Fri', 'Sat'],
         header: {
@@ -76,12 +76,13 @@ document.addEventListener("turbolinks:load", function(){
         	var schedule_days = year + "/" + month + "/" + date;
         	data.year(),months[data.month()],data.date();
 
+            // 'attr()'は、HTML要素の属性を取得したり設定することができるメソッド
         	var $select = $('#schedule_days');
         	$select.attr('value', schedule_days);
-
+ 
         	var $click = $('#todolist_days');
         	$click.attr('value', schedule_days);
-        	//
+
 	        $.ajax({
 	            url: "/events",
 	            type: "GET",
@@ -91,13 +92,13 @@ document.addEventListener("turbolinks:load", function(){
 	            },
 	            dataType: "html",
 	        })
-	        // Ajaxリクエストが成功した時発動。
+	        // Ajaxリクエストが成功した時に動く。
 	        .done(function(html) {
 	          	console.log(html)
 	          	//tab1の中のpost_wrapper1だけにかけている。
 	            $('.tab1 .post_wrapper1').html(html)
 	        })
-	        //
+
 	        $.ajax({
 	            url: "/events",
 	            type: "GET",
@@ -107,7 +108,7 @@ document.addEventListener("turbolinks:load", function(){
 	            },
 	            dataType: "html",
 	        })
-	        // Ajaxリクエストが成功した時発動。
+	        // Ajaxリクエストが成功した時に動く。
 	        .done(function(html) {
 	          	console.log(html)
 	          	//tab2の中のpost_wrapper2だけにかけている。
@@ -121,7 +122,7 @@ document.addEventListener("turbolinks:load", function(){
 
 // Index/タブメニュー -------------------------------------------------
 document.addEventListener("turbolinks:load", function(){
-	// 「idがtab-contentsである要素内からクラスがtabであり、id属性がtab1でない要素」を指定。
+	// 不等価演算子 "!=" 「クラスがtabであり、id属性がtab1でない要素」を指定。
 	$('#tab-contents .tab[id != "tab1"]').hide();
     $('#tab-menu a').on('click', function() {
 	    $("#tab-contents .tab").hide();
@@ -135,15 +136,14 @@ document.addEventListener("turbolinks:load", function(){
 
 
 // Index/Schedule -------------------------------------------------
-// 空のフォームを送信できないようにするための記述。
 document.addEventListener("turbolinks:load", function(){
+  // 空のフォームを送信できないようにするための記述。
   $(".submit1").click(function(){
     if ($(this).val() == "") {
      return false;
     }
   });
-  // AjaxのレスポンスはJavaScriptで受け取り処理される。
-  // Ajaxの通信が成功すると呼び出されるイベント。
+  // 通信が成功すると呼び出されるイベント。
   $('#schedule').on('ajax:success', function(e) {
       $('#scheduleTitle').val('');
       // [2]はインデックス
@@ -159,26 +159,21 @@ document.addEventListener("turbolinks:load", function(){
 
 
 // Index/Todolist -------------------------------------------------
-// 空のフォームを送信できないようにするための記述。
 document.addEventListener("turbolinks:load", function(){
+  // 空のフォームを送信できないようにするための記述。
   $(".submit2").click(function(){
     if ($(this).val() == "") {
       return false;
     }
   });
-  // AjaxのレスポンスはJavaScriptで受け取り処理される。
-  // Ajaxの通信が成功すると呼び出されるイベント。
+  // 通信が成功すると呼び出されるイベント。
   $('#todo').on('ajax:success', function(e) {
       $('#todolistTitle').val('');
       // [2]はインデックス
       // post_wrapper2クラスの先頭に投稿した文字列を表示。
       $('.post_wrapper2').prepend(e.detail[2].response);
   });
-  //
-  // $('.todolist_item').on('ajax:success', function(e) {
-  //     console.log('test');
-  //     $('.todolist_'+ e.detail[0]).remove();
-  // });
+  // 部分テンプレ/_todolistとの繋がり。
   $(document).on('ajax:success','.todolist_item', function(e) {
        $('.todolist_'+ e.detail[0]).remove();
   });
@@ -188,15 +183,14 @@ function check(e) {
 		var $check = $(e.target);
 		if($check.prop('checked') == true) {
 			console.log("チェックしたよ。", $check.prop('checked'));
-			// 押したら文字をtrueに変える
+			// 押したら文字をtrueに変える。
 			$('.chenge_button').click('checked', true);
 		} else {
 			console.log("チェック外れた。", $check.prop('checked'));
-			// 押したら文字をfalseに変える
+			// 押したら文字をfalseに変える。
 			$('.chenge_button').click('checked', false);
 		}
 		console.log($('#csrf_check').val())
-		// console.log($('#csrf_check').val());
 		//checkboxの値が変更された時、ajaxでその値を送信。
 		$.ajax({
             url: "/events/"+$check.prop('id'),

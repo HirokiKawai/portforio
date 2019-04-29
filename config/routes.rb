@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -10,7 +11,5 @@ Rails.application.routes.draw do
 
   get '/events' => 'users#events'
   post '/events/:id', to: 'todolists#update', as: 'events_update'
-
-  # post 'schedules/update', to: 'schedules#update', as: 'schedules_update'
 
 end

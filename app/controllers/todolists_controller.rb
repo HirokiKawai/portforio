@@ -9,6 +9,7 @@ class TodolistsController < ApplicationController
 	end
 
 	def update
+		# 'p'は、'puts'。rubyのログ出力。デバッグとして使われることも。
 		p params[:id]
 		todolist = Todolist.find(params[:id])
 		todolist.check = params[:check]
@@ -19,6 +20,7 @@ class TodolistsController < ApplicationController
 		todolist = Todolist.find(params[:id])
 		t = todolist.id
 		todolist.destroy
+		# 指定されたテキストを表示し、コンテンツタイプをtext/x-jsonに設定。
 		render json: t
 	end
 

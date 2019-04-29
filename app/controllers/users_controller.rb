@@ -6,14 +6,13 @@ class UsersController < ApplicationController
 	def events
 		date = params[:date]
 
-		# 始まりの時間と終わりの終わりの時間を指定している。
+		# 下の2行で'始まりの時間'と'終わりの時間'を指定している。
 		date = date.to_datetime
 		from = date.beginning_of_day
 		to = date.end_of_day
 
 		if params[:type] == "schedule"
-			# where => 与えられた条件にマッチするレコードをすべて返す。
-			#          条件にマッチしない場合は空の配列を返す。
+			# 'where'で条件にマッチするレコードを全て返す。条件にマッチしない場合は空の配列を返す。
 			schedule = Schedule.where(user_id:current_user.id).where(date: from..to)
 			render partial: "schedules/schedules", locals: {schedules: schedule}
 		else
@@ -31,14 +30,13 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-	    if @user.update(user_params)
-	    redirect_to user_path(@user.id)
-	    else
-	    render :edit
-	    end
-    end
+		if @user.update(user_params)
+		redirect_to user_path(@user.id)
+		else
+		render :edit
+		end
+	end
 
-	#受け取った値を保存する。
 	private
 	def post_params
 		params.permit(:title)
@@ -51,7 +49,7 @@ class UsersController < ApplicationController
 	def correct_user
 		unless user_signed_in?
 		redirect_to top_path
-	    end
-  	end
+		end
+	end
 
 end

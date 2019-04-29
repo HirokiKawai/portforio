@@ -72,9 +72,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'momentjs-rails'
   gem 'fullcalendar-rails'
 
-# モーダル機能（Font Awesomeを使う？）
+# モーダル機能（FontAwesomeを使う）
   gem 'font-awesome-rails'
 
-# railsで定義した変数をJS内で利用できるようにする。
+# railsで定義した変数をJS内で利用できるようにする為のgem
   gem 'gon'
 

@@ -2,7 +2,6 @@ class SchedulesController < ApplicationController
 
 	before_action :correct_user, only: [:index]
 
-
 	def top
 	end
 
@@ -18,15 +17,15 @@ class SchedulesController < ApplicationController
 		schedule = Schedule.new(post_params)
 		schedule.user_id = current_user.id
 
-        # integer型に変換
+		# integer型に変換
 		hour = params['time(4i)'].to_i
 		minutes = params['time(5i)'].to_i
 		# datetime型に変換
 		date = params[:date].to_datetime
 
-        # 時と分を変更している。
+		# 時と分を変更している。
 		fixed_date = date.change(hour: hour, min: minutes)
-		# schedule.dateをfixed_dateに変えている。
+		# schedule.dateをfixed_dateに変換。
 		schedule.date = fixed_date
 		schedule.save
 
@@ -37,11 +36,11 @@ class SchedulesController < ApplicationController
 	def destroy
 		schedule = Schedule.find(params[:id])
 		s = schedule.id
-        schedule.destroy
-        render json: s
+		schedule.destroy
+		# 指定されたテキストを表示し、コンテンツタイプをtext/x-jsonに設定。
+		render json: s
 	end
 
-	# 受け取った値を保存する。
 	private
 	def post_params
 		params.permit(:title)
@@ -50,7 +49,7 @@ class SchedulesController < ApplicationController
 	def correct_user
 		unless user_signed_in?
 		redirect_to top_path
-	    end
-  	end
+		end
+	end
 
 end

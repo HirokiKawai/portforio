@@ -1,7 +1,8 @@
 
 <!--delete前にアラート鳴らして『削除しますか？』を入れる。-->
 <div class="todolist_<%= t.id %>">
-	<!--if文 => ['checked="checked"']がないと変わって欲しいものに変わらない。-->
+	<!--if文 => ['checked="checked"']がないと中身が変わって欲しいものに変わらない。-->
     <h4><input class="check_button" id="<%= t.id %>" type="checkbox" onchange="check(arguments[0])" <%= 'checked="checked"' if t.check == true %> /></h4>
+    <!--'remote: true'で、リクエストがhtml形式ではなくjs形式になる。-->
 	<h4><%= link_to t.title, todolist_path(t.id), method: :delete, remote: true, class: "todolist_item" %></h4>
 </div>
