@@ -1,4 +1,3 @@
-# ruby2.5の記述を修正。
 #!/usr/bin/env ruby
 begin
   load File.expand_path('../spring', __FILE__)
