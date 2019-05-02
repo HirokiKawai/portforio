@@ -18,6 +18,7 @@ class SchedulesController < ApplicationController
 		schedule.user_id = current_user.id
 
 		# integer型に変換
+		# パラメータで曖昧な情報となっていたのでここで修正している。
 		hour = params['time(4i)'].to_i
 		minutes = params['time(5i)'].to_i
 		# datetime型に変換

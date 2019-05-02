@@ -79,7 +79,7 @@ document.addEventListener("turbolinks:load", function(){
             // 'attr()'は、HTML要素の属性を取得したり設定することができるメソッド
         	var $select = $('#schedule_days');
         	$select.attr('value', schedule_days);
- 
+
         	var $click = $('#todolist_days');
         	$click.attr('value', schedule_days);
 
@@ -200,7 +200,7 @@ function check(e) {
               'X-CSRF-TOKEN': $('#csrf_check').val()
             }
         })
-          // Ajaxリクエストが成功した時発動。
+        // Ajaxリクエストが成功した時発動。
         .done(function(res) {
             console.log(res);
         })
@@ -209,4 +209,3 @@ function check(e) {
         })
 };
 // ---------------------------------------------------------
-

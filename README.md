@@ -1,30 +1,4 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-====================================================================================
 製作者の紹介
       業界未経験者向けのプログラミングスクール通い、３ヶ月目の課題として卒業制作として制作しました。
     プログラミングを始めて３ヶ月目という点も理解した上で見ていただけたらなと思います。
@@ -35,7 +9,7 @@ Things you may want to cover:
      『Schcordment』
 
 言語
-      使用した言語はHTML/CSS/Ruby(on Rails)/JavaScriptです。
+      使用した言語はHTML/CSS/Ruby/JavaScriptです。
 
 機能
       Topページでは、HTMLとCSSを中心に画面をスクロールさせてログイン、新規登録画面まで移動します。
@@ -75,7 +49,7 @@ Things you may want to cover:
       4,祝日を表示させたい。Google Calendar APIの取得したい。
 
 
-ご覧頂き有難う御座いました。
+ご覧頂き有難う御座います。
 
 
 

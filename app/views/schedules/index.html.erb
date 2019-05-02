@@ -12,6 +12,7 @@
       <div class="col-lg-4">
         <body>
           <!--Rails/CSRF対策、form_forなどの記述は対策のトークンを埋め込む必要はない。-->
+          <!--POSTアクションに不具合が生じ、その対策としてタブ全体にかけている。-->
           <input type="hidden" id="csrf_check" name="authenticity_token" value=<%= form_authenticity_token %>>
            	<div class="wrap">
               	<ul id="tab-menu" class="clearfix">

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 		date = params[:date]
 
 		# 下の2行で'始まりの時間'と'終わりの時間'を指定している。
+		# '00:00~23:59'で１日を区切らせている。
 		date = date.to_datetime
 		from = date.beginning_of_day
 		to = date.end_of_day
