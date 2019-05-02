@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def after_sign_out_path_for(resource)
-		top_path
+		root_path
 	end
 
 	# sign_upの時、ユーザ名(name)のデータ操作が許可されることになる。
