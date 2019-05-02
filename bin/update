@@ -1,4 +1,5 @@
-#!/usr/bin/env ruby2.5
+# ruby2.5の記述を修正。
+#!/usr/bin/env ruby
 require 'fileutils'
 include FileUtils
 
